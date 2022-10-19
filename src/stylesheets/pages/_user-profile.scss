@@ -1,0 +1,238 @@
+#profile {
+  .content {
+    display: grid;
+  }
+
+  .card {
+    background-color: $light-grey;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-image: none;
+    overflow: hidden;
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 2px 0px,
+      rgb(0 0 0 / 12%) 0px 12px 24px -4px;
+    border-radius: 16px;
+    z-index: 0;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .card-header {
+    margin: 0px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .card-content {
+    padding: 24px;
+  }
+  .card-content-profile {
+    height: 210px;
+  }
+  .card-footer {
+    overflow: hidden;
+    min-height: 48px;
+    display: flex;
+    width: 100%;
+    bottom: 0px;
+    z-index: 9;
+    position: absolute;
+    background-color: $light-grey;
+  }
+
+  .backdrop-filter {
+    background-color: $brand-color;
+    top: 0px;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .avatar-div {
+    right: auto;
+    display: flex;
+    align-items: center;
+    left: 24px;
+    bottom: 24px;
+    position: absolute;
+    margin-top: 40px;
+    z-index: 99;
+  }
+
+  .avatar-root {
+    width: 128px;
+    height: 128px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    user-select: none;
+    color: $light-grey;
+    background-color: $dark-grey;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $light-grey;
+  }
+
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    object-fit: cover;
+    color: transparent;
+    text-indent: 10000px;
+  }
+
+  .name-div {
+    margin-left: 24px;
+    margin-top: 0px;
+    text-align: left;
+  }
+  .name-div h4 {
+    font-size: 1.5rem;
+    margin: 0px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .name-div p {
+    margin: 0px;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.72;
+  }
+
+  .text-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+  .text-number {
+    font-size: 1.5rem;
+    margin: 0px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .tex-description {
+    margin: 0px;
+    line-height: 1.57143;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: $dark-grey;
+  }
+  .followers-divide {
+    margin: 0px;
+    flex-shrink: 0;
+    border-width: 0px thin 0px 0px;
+    border-style: solid;
+    border-color: $mid-grey;
+    height: auto;
+    align-self: stretch;
+  }
+  .divide {
+    margin: 0px;
+    flex-shrink: 0;
+    border-style: solid;
+    border-color: $mid-grey;
+    width: auto;
+    align-self: stretch;
+  }
+
+  .repo-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+
+  .repo-content :last-child hr {
+    border-width: 0px thin 0px 0px;
+  }
+
+  .followers-div {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .repos-div {
+    display: flex;
+    flex-direction: column;
+    /*     align-items: center; */
+  }
+
+  .repo-name {
+    font-size: 1.2rem;
+    margin: 0px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: $brand-color;
+    cursor: pointer;
+  }
+  .repo-description {
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .repo-info-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .repo-info-div p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0px 0px 24px 0px;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .img-div {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 105;
+    height: 50%;
+    margin: 24px;
+  }
+  .git-img {
+    height: 100%;
+    display: none;
+  }
+  .button-back {
+    border-bottom-right-radius: 16px;
+    width: 70px;
+    background: $dark-grey;
+    color: $light-grey;
+    cursor: pointer;
+  }
+  .button-back:hover {
+    transform: scale(1.08);
+  }
+
+  @media (min-width: $breakpoints-small) {
+    .git-img {
+      display: none;
+    }
+  }
+
+  @media (min-width: $breakpoints-medium) {
+    .git-img {
+      display: block;
+    }
+  }
+
+  @media (min-width: $breakpoints-large) {
+    .git-img {
+      display: block;
+    }
+  }
+}

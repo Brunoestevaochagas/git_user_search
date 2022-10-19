@@ -1,0 +1,134 @@
+@media (min-width: $breakpoints-small) {
+  .cards-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .search-group {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .git-logo {
+    display: none;
+  }
+}
+
+@media (min-width: $breakpoints-medium) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .git-logo {
+    display: none;
+  }
+  .search-input {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (min-width: $breakpoints-large) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .search-group {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .git-logo {
+    display: block;
+  }
+  .search-input {
+    width: 50%;
+    max-width: 500px;
+  }
+}
+
+.search-bar {
+  background: $dark-grey;
+  height: 90px;
+  display: flex;
+  padding: 24px;
+  align-items: center;
+  z-index: 200;
+  position: sticky;
+  top: 0;
+  left: 0;
+  box-shadow: rgb(0 0 0 / 54%) 0px 0px 2px 0px,
+    rgb(89 75 75 / 56%) 0px 12px 24px -4px;
+}
+
+.search-input {
+  position: relative;
+  background: $brand-color;
+  border-radius: 0.7rem;
+}
+
+.search-input input,
+button {
+  height: 2.5rem;
+  font-family: $text-font-stack;
+  border: 0;
+  color: $dark-grey;
+  font-size: 1.1rem;
+}
+
+.search-input input[type="search"] {
+  width: 100%;
+  background: $light-grey;
+  padding: 0 1.6rem;
+  border-radius: 0.7rem;
+  appearance: none;
+  transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+input:focus {
+  outline: none;
+}
+.search-group {
+  display: flex;
+  column-gap: 24px;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  padding: 24px;
+}
+.search-input button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6rem;
+  background: $brand-color;
+  border-radius: 0 0.7rem 0.7rem 0;
+}
+
+.search-input button:hover {
+  transform: scale(1.02);
+}
+.found-text {
+  color: $light-grey;
+}
+.search-input input:not(:placeholder-shown) {
+  border-radius: 0.7rem 0 0 0.7rem;
+  width: calc(100% - 6rem);
+  + button {
+    display: block;
+  }
+}
+.git-logo {
+  height: 50px;
+}
