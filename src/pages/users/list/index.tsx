@@ -5,8 +5,9 @@ import { UserCard } from "./userCard";
 import { Loading } from "../../../component/loading";
 
 const UserList = () => {
-  const { users, per_page, page, hasMore, error, searchValue, isLoading } =
-    useSelector((state) => state.users);
+  const { users, per_page, page, hasMore, error, searchValue } = useSelector(
+    (state) => state.users
+  );
 
   const loadMore = async () => {
     if (searchValue) {
