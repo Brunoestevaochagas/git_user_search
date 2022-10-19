@@ -1,9 +1,7 @@
-import * as React from "react";
 import { render, RenderResult } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import UserProfile from "../pages/users/profile";
-import { BrowserRouter, Route } from "react-router-dom";
 import { MemoryRouter } from "react-router-dom";
 
 const renderUserList = (): RenderResult =>

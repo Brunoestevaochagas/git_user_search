@@ -1,4 +1,3 @@
-import * as React from "react";
 import { render, RenderResult } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
