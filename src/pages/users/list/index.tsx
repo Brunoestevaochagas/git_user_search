@@ -5,14 +5,20 @@ import { UserCard } from "./userCard";
 import { Loading } from "../../../component/loading";
 
 const UserList = () => {
-  const { users, per_page, page, hasMore, error, searchValue } = useSelector(
+  const { users, usersInfiniteScroll, searchValue } = useSelector(
     (state) => state.users
   );
 
   const loadMore = async () => {
     if (searchValue) {
       try {
-        await dispatch(loadMoreUsers(searchValue, per_page, page + 1));
+        await dispatch(
+          loadMoreUsers(
+            searchValue,
+            usersInfiniteScroll.per_page,
+            usersInfiniteScroll.page + 1
+          )
+        );
       } catch (error) {}
     }
   };
@@ -23,7 +29,7 @@ const UserList = () => {
         initialScrollY={0}
         className="cards-container "
         next={() => loadMore()}
-        hasMore={hasMore}
+        hasMore={usersInfiniteScroll.hasMore}
         loader={
           <div className="loading">
             <Loading />
@@ -36,7 +42,7 @@ const UserList = () => {
         ))}
       </InfiniteScroll>
       <div className="error">
-        <span>{error?.message}</span>
+        <span>{usersInfiniteScroll?.error?.message}</span>
       </div>
     </div>
   );

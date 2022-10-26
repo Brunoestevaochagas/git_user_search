@@ -7,7 +7,7 @@ import GitLogo from "../component/gitLogo";
 const Header = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { count, foundValue, per_page, searchValue, isLoading } = useSelector(
+  const { foundValue, usersInfiniteScroll, searchValue } = useSelector(
     (state) => state.users
   );
 
@@ -20,7 +20,7 @@ const Header = () => {
   const handleSearch = async () => {
     if (searchValue !== foundValue) {
       try {
-        await dispatch(getUsers(searchValue, per_page, 1));
+        await dispatch(getUsers(searchValue, usersInfiniteScroll.per_page, 1));
         pathname !== "/users" && navigate("/users");
       } catch (error) {}
     }
@@ -45,12 +45,12 @@ const Header = () => {
             onChange={(e) => handleChanges(e)}
           />
           <button onClick={handleSearch}>
-            {isLoading ? <Loading /> : "Search"}
+            {usersInfiniteScroll.isLoading ? <Loading /> : "Search"}
           </button>
         </div>
         <div>
           {foundValue ? (
-            <small className="found-text">{`Found ${count} results for "${foundValue}"`}</small>
+            <small className="found-text">{`Found ${usersInfiniteScroll.count} results for "${foundValue}"`}</small>
           ) : null}
         </div>
       </div>
