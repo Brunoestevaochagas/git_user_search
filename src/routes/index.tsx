@@ -3,10 +3,10 @@ import { Navigate, useRoutes } from "react-router-dom";
 import { Loading } from "../component/loading";
 import Layout from "../layout";
 
-const Loadable = (Component: ElementType) => (props: any) => {
+const Loadable = (Component: ElementType) => () => {
   return (
     <Suspense fallback={<Loading />}>
-      <Component {...props} />
+      <Component />
     </Suspense>
   );
 };
