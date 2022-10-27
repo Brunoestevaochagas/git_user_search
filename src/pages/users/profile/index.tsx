@@ -14,6 +14,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { RepoCard } from "./repoCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Loading } from "../../../component/loading";
+import { ReposType } from "../../../@types/User";
 
 const UserProfile = () => {
   const { id } = useParams();
@@ -85,11 +86,7 @@ const UserProfile = () => {
         </div>
       </div>
       <div className="content">
-        {error ? (
-          <div className="error">
-            <span>{error?.message}</span>
-          </div>
-        ) : (
+        {!error ? (
           <div className="card card-content followers-div">
             <div className="text-div">
               <h4 className="text-number">{user?.followers}</h4>
@@ -106,29 +103,29 @@ const UserProfile = () => {
               <p className="tex-description"> Public Repos</p>
             </div>
           </div>
-        )}
+        ) : null}
 
         {repos.length > 0 ? (
           <div className="card card-content repos-div">
             <h4 className="card-header">Public Repositories</h4>
-            <div className="repo-content">
-              <InfiniteScroll
-                initialScrollY={0}
-                next={() => loadMore()}
-                hasMore={reposInfiniteScroll.hasMore}
-                loader={
-                  <div className="loading">
-                    <Loading />
-                  </div>
-                }
-                dataLength={repos.length}
-                style={{ overflowY: "hidden" }}
-              >
-                {repos?.map((repo: any) => (
-                  <RepoCard key={repo.id} repo={repo} />
-                ))}
-              </InfiniteScroll>
-            </div>
+
+            <InfiniteScroll
+              className="repo-content"
+              initialScrollY={0}
+              next={() => loadMore()}
+              hasMore={reposInfiniteScroll.hasMore}
+              loader={
+                <div className="loading">
+                  <Loading />
+                </div>
+              }
+              dataLength={repos.length}
+              style={{ overflowY: "hidden" }}
+            >
+              {repos?.map((repo: ReposType) => (
+                <RepoCard key={repo.id} repo={repo} />
+              ))}
+            </InfiniteScroll>
           </div>
         ) : null}
 

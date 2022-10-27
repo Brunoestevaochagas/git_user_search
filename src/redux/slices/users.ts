@@ -137,6 +137,7 @@ const slice = createSlice({
       state.usersInfiniteScroll.error = null;
       state.usersInfiniteScroll.hasMore = false;
       state.foundValue = "";
+      state.usersInfiniteScroll.error = null;
     },
     clearRepos(state) {
       state.repos = [];
@@ -144,6 +145,7 @@ const slice = createSlice({
       state.reposInfiniteScroll.count = undefined;
       state.reposInfiniteScroll.error = null;
       state.reposInfiniteScroll.hasMore = false;
+      state.reposInfiniteScroll.error = null;
     },
     clearUser(state) {
       state.user = undefined;
