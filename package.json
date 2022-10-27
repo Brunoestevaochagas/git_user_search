@@ -2,6 +2,7 @@
   "name": "lovely",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.14.1",
@@ -59,15 +60,5 @@
     "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "^29.2.1",
     "ts-jest": "^29.0.3"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "transform": {
-      "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
-    },
-    "transformIgnorePatterns": [
-      "node_modules/(?!variables/.*)"
-    ]
   }
 }
